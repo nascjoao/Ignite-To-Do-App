@@ -9,14 +9,16 @@ export interface ITask {
 
 interface TaskProps extends ITask {
   onDelete: (id: string) => void;
+  onCheck: (id: string, finished: boolean) => void;
 }
 
-export function Task({ id, content, finished, onDelete }: TaskProps) {
+export function Task({ id, content, finished, onDelete, onCheck }: TaskProps) {
   return (
     <article className={styles.task}>
       <button
         title={ finished ? 'Concluída' : 'Não concluída' }
         className={ finished ? styles.finished : styles.notFinished }
+        onClick={() => onCheck(id!, !finished) }
       >
         { finished ? (
           <CheckCircle size={20} weight="fill" />

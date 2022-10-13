@@ -26,17 +26,42 @@
   background: none;
   border: none;
   border-radius: 999px;
+  cursor: pointer;
 }
 
 button.notFinished {
   background: none;
   color: var(--blue);
+  transition: 0.1s;
+}
+
+button.notFinished:hover {
+  color: var(--blue-dark);
+  position: relative;
 }
 
 button.finished {
   width: 1.25rem;
   height: 1.25rem;
+  color: var(--purple-dark);
+  transition: 0.1s;
+}
+
+button.finished:hover {
   color: var(--purple);
+}
+
+button.notFinished:hover::after {
+  content: '';
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--blue-dark);
+  opacity: 20%;
+  border-radius: 999px;
 }
 
 p.finished {

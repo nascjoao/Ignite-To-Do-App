@@ -39,6 +39,19 @@ export function Tasks() {
     setTasks(filteredTasks);
   }
 
+  function checkTask(id: string, finished: boolean) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          finished,
+        }
+      }
+      return task;
+    })
+    setTasks(updatedTasks)
+  }
+
   return (
     <>
       <NewTask onTaskCreation={createTask} />
@@ -74,6 +87,7 @@ export function Tasks() {
                 content={task.content}
                 finished={task.finished}
                 onDelete={deleteTask}
+                onCheck={checkTask}
               />
             ))
           ) }
