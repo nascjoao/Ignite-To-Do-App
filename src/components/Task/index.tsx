@@ -1,9 +1,10 @@
 import styles from './styles.module.css';
-import { Circle, Check, CheckCircle, Trash } from 'phosphor-react';
+import { Circle, CheckCircle, Trash } from 'phosphor-react';
 
 export interface ITask {
+  id?: string;
   content: string;
-  finished: boolean;
+  finished?: boolean;
 }
 
 export function Task({ content, finished }: ITask) {
