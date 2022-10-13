@@ -8,8 +8,10 @@ export function NewTask({ onTaskCreation }: { onTaskCreation: (task: ITask) => v
 
   function submitTask(event: FormEvent) {
     event.preventDefault();
-    onTaskCreation({ content: taskContent })
-    setTaskContent('')
+    if (taskContent !== '') {
+      onTaskCreation({ content: taskContent })
+      setTaskContent('')
+    }
   }
 
   return (
@@ -19,6 +21,7 @@ export function NewTask({ onTaskCreation }: { onTaskCreation: (task: ITask) => v
         placeholder="Adicione uma nova tarefa"
         value={taskContent}
         onChange={({ target: { value } }) => setTaskContent(value)}
+        required
       />
       <button>
         Criar
