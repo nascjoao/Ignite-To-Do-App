@@ -4,6 +4,7 @@
   max-width: 47.25rem;
   width: 100%;
   gap: 0.5rem;
+  padding: 0 1.25rem;
 }
 
 .newTask input {
@@ -49,4 +50,15 @@
 .newTask button:focus {
   outline: none;
   box-shadow: 0 0 0 3px var(--blue);
+}
+
+@media screen and (max-width: 310px) {
+  .newTask {
+    flex-direction: column;
+  }
+
+  .newTask button {
+    display: flex;
+    justify-content: center;
+  }
 }
