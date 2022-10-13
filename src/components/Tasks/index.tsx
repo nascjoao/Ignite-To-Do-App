@@ -34,6 +34,11 @@ export function Tasks() {
     ]))
   }
 
+  function deleteTask(id: string) {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  }
+
   return (
     <>
       <NewTask onTaskCreation={createTask} />
@@ -65,8 +70,10 @@ export function Tasks() {
             tasks.map((task) => (
               <Task
                 key={task.id}
+                id={task.id}
                 content={task.content}
                 finished={task.finished}
+                onDelete={deleteTask}
               />
             ))
           ) }

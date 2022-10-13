@@ -7,7 +7,11 @@ export interface ITask {
   finished?: boolean;
 }
 
-export function Task({ content, finished }: ITask) {
+interface TaskProps extends ITask {
+  onDelete: (id: string) => void;
+}
+
+export function Task({ id, content, finished, onDelete }: TaskProps) {
   return (
     <article className={styles.task}>
       <button
@@ -25,7 +29,7 @@ export function Task({ content, finished }: ITask) {
         title="Apagar"
         className={styles.deleteTask}
       >
-        <Trash size={20} />
+        <Trash size={20} onClick={() => onDelete(id!)} />
       </button>
     </article>
   )
