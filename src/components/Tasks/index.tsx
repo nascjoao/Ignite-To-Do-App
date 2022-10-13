@@ -6,18 +6,7 @@ import { NewTask } from '../NewTask';
 import { v4 as generateId } from 'uuid';
 
 export function Tasks() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 'e470919b-0da0-4641-b7d2-0f6853d936ac',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique aut hic a commodi eligendi, tempore minus, aliquid ab perferendis cumque fugiat odit quam repellat beatae nostrum eos quis quae sapiente!',
-      finished: false,
-    },
-    {
-      id: '8332a3d7-1745-49c6-a0a7-7f646bd4eef8',
-      content: 'Atualizar finanças',
-      finished: true
-    }
-  ])
+  const [tasks, setTasks] = useState<ITask[]>([])
 
   function countFinishedTasks(tasks: ITask[]) {
     return tasks.filter((task) => task.finished).length;
